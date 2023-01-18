@@ -15,9 +15,9 @@ from sklearn import linear_model,tree
 from sklearn.metrics import classification_report
 from openpyxl import load_workbook
 
-un="HENRY_ZHANG"
-pw="Q1w2e3r4"
-cs="PROD"
+un='******'
+pw'******'
+cs='******'
 
 ms=r'C:\Users\henry.zhang\Desktop\Projects\Intergration\Mistersheep.xlsm'
 
@@ -56,8 +56,8 @@ def color():
     con=odb.connect(user=un,password=pw,dsn=cs)
 
     colorqry="""
-    WITH SEC_MASTER AS (
-        SELECT MASTER.SEC_ID, MASTER.SEC_ID_TYPE , FIELD_NAME,
+    WITH ******** AS (
+        SELECT ********, ******** , ********,
             CASE
                 WHEN FIELD_TYPE = 'String' THEN FIELD_STRING_VALUE
                 WHEN FIELD_TYPE = 'Integer' THEN TO_CHAR(FIELD_INTEGER_VALUE)
@@ -359,7 +359,7 @@ def data():
     masterqry="""
     Select """+fq+"""
 
-    From Security_master sm,Pricing_Results pr
+    From ********* sm,********** pr
     left join (select sec_id,
     max(case when field_name = 'AccumUnrealizedWritedown' then FIELD_Float_VALUE else null end) AccumUnrealizedWritedown,
     max(case when field_name = 'AssetCount' then FIELD_Integer_VALUE else null end) AssetCount,
@@ -445,6 +445,11 @@ def data():
     max(case when field_name = 'ReportedCurrentWAC' then FIELD_Float_VALUE else null end) ReportedCurrentWAC,
     max(case when field_name = 'ReportedCurrentWAS' then FIELD_Float_VALUE else null end) ReportedCurrentWAS,
     max(case when field_name = 'Retail' then FIELD_Float_VALUE else null end) Retail,
+    ****************************************************************************************
+    ****************************************************************************************
+    ****************************************************************************************
+    ****************************************************************************************
+    ****************************************************************************************
     max(case when field_name = 'RiskRetention' then FIELD_String_VALUE else null end) RiskRetention,
     max(case when field_name = 'SecondLienBalance' then FIELD_Float_VALUE else null end) SecondLienBalance,
     max(case when field_name = 'SecondLienBalancePercent' then FIELD_Float_VALUE else null end) SecondLienBalancePercent,
@@ -482,7 +487,7 @@ def data():
 
     from sec_indicative_info
     group by sec_id) "INFO"
-    on pr.sec_id= INFO.sec_id
+    on pr.****= INFO.****
 
     left join (select ids1.idvalue as "ID",ids2.idvalue as "TICKER"
     from instruments_ids ids1, instruments_ids ids2
